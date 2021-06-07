@@ -27,7 +27,7 @@ Import-modul OSD -Force
 
 Skriv-vært -ForegroundColor Green "Start OSDCloud"
 
-Start-OSDCloud -OSLanguage da-dk -OSBuild 20H2 -OSEdition Enterprise -ZTI
+Start-OSDCloud -OSLanguage da-dk -OSBuild 21H2 -OSEdition Pro -ZTI
 
 # Genstart fra WinPE
 
