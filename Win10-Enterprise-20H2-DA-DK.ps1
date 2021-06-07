@@ -1,38 +1,37 @@
-Skriv-vært -ForegroundColor Green "Starter OSDCloud ZTI"
+Write-Host -ForegroundColor Green "Starting OSDCloud ZTI"
 
-Start-Sleep-Sekunder 5
+Start-Sleep -Seconds 5
 
 #Change Display Resolution for Virtual Machine
 
-hvis ((Get-MyComputerModel) -match 'Virtual') {
+if ((Get-MyComputerModel) -match 'Virtual') {
 
-Skriv-vært -ForegroundColor Green "Indstilling af skærmopløsning til 1600x"
+Write-Host -ForegroundColor Green "Setting Display Resolution to 1600x"
 
 Set-DisRes 1600
 
 }
 
-#Sørg for, at jeg har det nyeste OSD-indhold
+#Make sure I have the latest OSD Content
 
-
-Skriv-vært -ForegroundColor Green "Opdatering af OSD PowerShell-modul"
+Write-Host -ForegroundColor Green "Updating OSD PowerShell Module"
 
 Install-Module OSD -Force
 
-Skriv-vært -ForegroundColor Green "Importerer OSD PowerShell-modul"
+Write-Host -ForegroundColor Green "Importing OSD PowerShell Module"
 
-Import-modul OSD -Force
+Import-Module OSD -Force
 
-#Start OSDCloud ZTI den rigtige måde
+#Start OSDCloud ZTI the RIGHT way
 
-Skriv-vært -ForegroundColor Green "Start OSDCloud"
+Write-Host -ForegroundColor Green "Start OSDCloud"
 
-Start-OSDCloud -OSLanguage da-dk -OSBuild 21H2 -OSEdition Pro -ZTI
+Start-OSDCloud -OSLanguage da-dk -OSBuild 21H1 -OSEdition Pro -ZTI
 
-# Genstart fra WinPE
+#Restart from WinPE
 
-Skriv-vært -ForegroundColor Green "Genstartes på 20 sekunder!"
+Write-Host -ForegroundColor Green "Restarting in 20 seconds!"
 
-Start-Sleep-Sekunder 20
+Start-Sleep -Seconds 20
 
-genstart wpeutil
+wpeutil reboot
